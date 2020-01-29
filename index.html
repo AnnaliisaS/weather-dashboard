@@ -19,8 +19,9 @@
             <h5>Search for a City:</h5>
                 <div class="row">
                     <input type="text" id="search">
-                    <button type="submit" class="col-sm-.5 btn btn-primary"><img src="./images/search.svg"></button>
-                </div>
+                    <button type="submit" class="col-sm-.5 btn btn-primary" id="srchBtn" ><img src="./images/search.svg"></button>
+                </div> 
+                <!-- placeholder for dynamic buttons to be created/template -->
                 <div class="btn-group-vertical">
                     <button class="vert" type="button">Austin</button>
                     <button class="vert" type="button">Chicago</button>
@@ -36,8 +37,8 @@
         <div class="col-8 block" id="result">
             <div class="row" id="cityDiv">
                 <div class="card bg row">
-                    <div class="card-header" id="cityHeader">
-                        <h4>*Placeholder for city Name + Date + Icon</h4>
+                    <div class="card-header">
+                        <h4 id="cityHeader"><img class="icon"></h4>
                     </div> 
                     <div class="card-body">
                         <p class="card-text" id="cityTemp">Temp: </p>
@@ -62,11 +63,12 @@
     </div>
         
 
-        <!-- moment.js script-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- moment.js script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+        <script src="./weather.js"></script> 
 </body>
 </html>
