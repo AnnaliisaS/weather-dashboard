@@ -16,12 +16,12 @@ console.log(city);
 let queryURL = `https://api.openweathermap.org/data/2.5/weather?` +
 `q=` + city + `,&units=imperial&appid=` + apiKey;
 
-// Here we run our AJAX call to the OpenWeatherMap API
+// Run AJAX call to the OpenWeatherMap API
 $.ajax({
 url: queryURL,
 method: "GET"
 })
-// We store all of the retrieved data inside of an object called "response"
+// Store all retrieved data inside of an object called "response"
 .then(function(response) {
 
   // Log the resulting object
@@ -41,8 +41,6 @@ let image = $("<img>").attr("src", iconUrl);
   $("#cityHumid").text("Humidity: " + response.main.humidity);
   $("#cityTemp").text("Temperature: " + response.main.temp + " (F)");
 });
-// lat and lon required for current geolocation: 'api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}'
-// let queryURL2 = 
 
 var lat = localStorage.getItem('lat');
 var lon = localStorage.getItem('lon');
@@ -62,7 +60,9 @@ $.ajax({
     let uv = response.value;
 // Transfer content to HTML
      $("#cityUV").text("UV: " + uv);
-
+    // let date = response.date_iso;
+    var date = moment(response.date_iso, 'YYYY-MM-DD HH:mm Z').format("MMMM Do YYYY")
+    $(".date").text(date);
   });
 };
 
