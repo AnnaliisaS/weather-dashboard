@@ -82,6 +82,7 @@ $.ajax({
   let day5 = response.list[36];
   let myForecast = [day1, day2, day3, day4, day5];
   console.log(myForecast);
+
 })
 };
 // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
