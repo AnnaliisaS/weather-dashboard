@@ -9,7 +9,9 @@ $('#srchBtn').click(function(event){
   let cityName = $('#search').val();
   localStorage.setItem('city', cityName);
   getWeather();
+  getForecast();
 })
+
 function getWeather(){
 var city = localStorage.getItem('city');
 console.log(city);
@@ -65,6 +67,24 @@ $.ajax({
     $(".date").text(date);
   });
 };
+
+function getForecast(){
+let city = localStorage.getItem('city');
+$.ajax({
+  url: `http://api.openweathermap.org/data/2.5/forecast?q=` + city + `&appid=` + apiKey,
+  method: "GET"
+})
+.then(function(response){
+  let day1 = response.list[4];
+  let day2 = response.list[12];
+  let day3 = response.list[20];
+  let day4 = response.list[28];
+  let day5 = response.list[36];
+  let myForecast = [day1, day2, day3, day4, day5];
+  console.log(myForecast);
+})
+};
+// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 
 
 
