@@ -1,6 +1,6 @@
 const apiKey = 'ae1c44435a8e0386a092be244c367718';
 const apiCall = 'api.openweathermap.org/data/2.5/';
-
+const searches = [];
 // document.querySelector('search') = cityName;
 //by city example: api.openweathermap.org/data/2.5/weather?q={city name}
 //event listener for the search button 
@@ -8,9 +8,14 @@ $('#srchBtn').click(function(event){
   event.preventDefault();
   let cityName = $('#search').val();
   localStorage.setItem('city', cityName);
+  localStorage.setItem('searches', JSON.stringify(searches));
+  searches.push(cityName);
+  console.log(searches);
   getWeather();
   getForecast();
 })
+
+
 
 function getWeather(){
 var city = localStorage.getItem('city');
