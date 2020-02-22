@@ -37,7 +37,7 @@ method: "GET"
 
 // retrieving the weather icon code and icon url to retrieve correct icon
 let icon = response.weather[0].icon;
-let iconUrl = 'http://openweathermap.org/img/wn/' + icon + '@2x.png';
+let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '@2x.png';
 
 // Creating an element to hold the icon
 let image = $("<img>").attr("src", iconUrl);
@@ -55,7 +55,7 @@ let currentLoc = `lat=` + lat + `&lon= `+ lon;
 let uvCall = apiCall + `uvi?appid=` + apiKey + `&` + currentLoc;
 // // parameters for the uv query:`http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}`
 $.ajax({
-  url: `http://api.openweathermap.org/data/2.5/uvi?appid=` + apiKey + `&lat=` + lat + `&lon=` + lon,
+  url: `https://api.openweathermap.org/data/2.5/uvi?appid=` + apiKey + `&lat=` + lat + `&lon=` + lon,
   method: "GET"
   })
 // store all of the retrieved data inside of an object called "response"
@@ -75,7 +75,7 @@ $.ajax({
 function getForecast(){
 let city = localStorage.getItem('city');
 $.ajax({
-  url: `http://api.openweathermap.org/data/2.5/forecast?q=` + city + `&appid=` + apiKey,
+  url: `https://api.openweathermap.org/data/2.5/forecast?q=` + city + `&appid=` + apiKey,
   method: "GET"
 })
 .then(function(response){
@@ -97,7 +97,7 @@ $.ajax({
       document.getElementById("previousSearches").innerHTML += "<button class='vert' type='button'>" + searches[i] + "</button>";
     }
   }
-  
+
 // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 
  
