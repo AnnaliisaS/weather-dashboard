@@ -68,7 +68,7 @@ $.ajax({
 // Transfer content to HTML
      $("#cityUV").text("UV: " + uv);
     // let date = response.date_iso;
-    var date = moment(response.date_iso, 'YYYY-MM-DD HH:mm Z').format("MMMM Do YYYY")
+    var date = moment(response.date_iso, 'YYYY-MM-DD HH:mm Z').format("MMMM Do, YYYY")
     $(".date").text(date);
   });
 };
@@ -83,23 +83,23 @@ $.ajax({
   myForecast = [];
   forecast.innerHTML = "";
   let day1 = response.list[4];
-  var date1 = moment(day1.dt_txt).format("MM Do YYYY")
+  var date1 = moment(day1.dt_txt).format("MM/DD/YYYY")
   document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date1 + "</div>";
   
   let day2 = response.list[12];
-  var date2 = moment(day2.dt_txt).format("MM Do YYYY")
+  var date2 = moment(day2.dt_txt).format("MM/DD/YYYY")
   document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date2 + "</div>";
   
   let day3 = response.list[20];
-  var date3 = moment(day3.dt_txt).format("MM Do YYYY")
+  var date3 = moment(day3.dt_txt).format("MM/DD/YYYY")
   document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date3 + "</div>";
   
   let day4 = response.list[28];
-  var date4 = moment(day4.dt_txt).format("MM Do YYYY")
+  var date4 = moment(day4.dt_txt).format("MM/DD/YYYY")
   document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date4 + "</div>";
   
   let day5 = response.list[36];
-  var date5 = moment(day5.dt_txt).format("MM Do YYYY")
+  var date5 = moment(day5.dt_txt).format("MM/DD/YYYY")
   document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date5 + "</div>";
   
 
