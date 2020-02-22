@@ -1,6 +1,7 @@
 const apiKey = 'ae1c44435a8e0386a092be244c367718';
 const apiCall = 'api.openweathermap.org/data/2.5/';
 const searches = [];
+let myForecast = [];
 
 //by city example: api.openweathermap.org/data/2.5/weather?q={city name}
 //event listener for the search button 
@@ -79,14 +80,31 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
+  myForecast = [];
+  forecast.innerHTML = "";
   let day1 = response.list[4];
+  var date1 = moment(day1.dt_txt).format("MM Do YYYY")
+  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date1 + "</div>";
+  
   let day2 = response.list[12];
+  var date2 = moment(day2.dt_txt).format("MM Do YYYY")
+  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date2 + "</div>";
+  
   let day3 = response.list[20];
+  var date3 = moment(day3.dt_txt).format("MM Do YYYY")
+  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date3 + "</div>";
+  
   let day4 = response.list[28];
+  var date4 = moment(day4.dt_txt).format("MM Do YYYY")
+  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date4 + "</div>";
+  
   let day5 = response.list[36];
-  let myForecast = [day1, day2, day3, day4, day5];
-  console.log(myForecast);
+  var date5 = moment(day5.dt_txt).format("MM Do YYYY")
+  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date5 + "</div>";
+  
 
+  myForecast.push(day1,day2,day3,day4,day5);
+  console.log(myForecast);
 })
 };
 
