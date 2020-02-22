@@ -15,6 +15,7 @@ $('#srchBtn').click(function(event){
   getWeather();
   getForecast();
   renderBtns();
+  // renderForecast();
 })
 
 function getWeather(){
@@ -42,10 +43,11 @@ let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '@2x.png';
 
 // Creating an element to hold the icon
 let image = $("<img>").attr("src", iconUrl);
+console.log(image);
   // Transfer content to HTML
   $("#cityHeader").text(response.name).append(image);
   $("#cityWind").text("Wind Speed: " + response.wind.speed);
-  $("#cityHumid").text("Humidity: " + response.main.humidity);
+  $("#cityHumid").text("Humidity: " + response.main.humidity + "%");
   $("#cityTemp").text("Temperature: " + response.main.temp + " (F)");
 });
 
@@ -82,25 +84,51 @@ $.ajax({
 .then(function(response){
   myForecast = [];
   forecast.innerHTML = "";
-  let day1 = response.list[4];
-  var date1 = moment(day1.dt_txt).format("MM/DD/YYYY")
-  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date1 + "</div>";
-  
-  let day2 = response.list[12];
-  var date2 = moment(day2.dt_txt).format("MM/DD/YYYY")
-  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date2 + "</div>";
-  
-  let day3 = response.list[20];
-  var date3 = moment(day3.dt_txt).format("MM/DD/YYYY")
-  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date3 + "</div>";
-  
-  let day4 = response.list[28];
-  var date4 = moment(day4.dt_txt).format("MM/DD/YYYY")
-  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date4 + "</div>";
-  
-  let day5 = response.list[36];
-  var date5 = moment(day5.dt_txt).format("MM/DD/YYYY")
-  document.getElementById("forecast").innerHTML += "<div class='card f1'>" + date5 + "</div>";
+  //card template 
+//   <!-- <div class="card f1" id="day2">
+//   <div class="card-body">
+//     <h5 class="card-title">Date</h5>
+//     <h6 class="card-subtitle"><img class="icon"></h6>
+//     <p class="card-text">Some quick example text.</p>
+//   </div>
+// </div>
+let day1 = response.list[4];
+var date1 = moment(day1.dt_txt).format("MM/DD/YYYY")
+// let icon = day1.weather[0].icon;
+// let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '@2x.png';
+// // Creating an element to hold the icon
+// let image = $("<img>").attr("src", iconUrl);
+document.getElementById("forecast").innerHTML += "<div class='card f1'><div class='card-body'><h5 class='card-title'>" + 
+date1 + "</h5><h6 class='card-subtitle'><img class='icon'></h6><p class='card-text'> Temp: " + day1.main.temp + 
+"<br>Humidity: " + day1.main.humidity + "%</p></div></div>";
+
+let day2 = response.list[12];
+var date2 = moment(day2.dt_txt).format("MM/DD/YYYY")
+document.getElementById("forecast").innerHTML += "<div class='card f1'><div class='card-body'><h5 class='card-title'>" + 
+date2 + "</h5><h6 class='card-subtitle'><img class='icon'></h6><p class='card-text'> Temp: " + day2.main.temp + 
+"<br>Humidity: " + day2.main.humidity + "%</p></div></div>";
+
+
+let day3 = response.list[20];
+var date3 = moment(day3.dt_txt).format("MM/DD/YYYY")
+document.getElementById("forecast").innerHTML += "<div class='card f1'><div class='card-body'><h5 class='card-title'>" + 
+date3 + "</h5><h6 class='card-subtitle'><img class='icon'></h6><p class='card-text'> Temp: " + day3.main.temp + 
+"<br>Humidity: " + day3.main.humidity + "%</p></div></div>";
+
+
+let day4 = response.list[28];
+var date4 = moment(day4.dt_txt).format("MM/DD/YYYY")
+document.getElementById("forecast").innerHTML += "<div class='card f1'><div class='card-body'><h5 class='card-title'>" + 
+date4 + "</h5><h6 class='card-subtitle'><img class='icon'></h6><p class='card-text'> Temp: " + day4.main.temp + 
+"<br>Humidity: " + day4.main.humidity + "%</p></div></div>";
+
+
+let day5 = response.list[36];
+var date5 = moment(day5.dt_txt).format("MM/DD/YYYY")
+document.getElementById("forecast").innerHTML += "<div class='card f1'><div class='card-body'><h5 class='card-title'>" + 
+date5 + "</h5><h6 class='card-subtitle'><img class='icon'></h6><p class='card-text'> Temp: " + day5.main.temp + 
+"<br>Humidity: " + day5.main.humidity + "%</p></div></div>";
+
   
 
   myForecast.push(day1,day2,day3,day4,day5);
